@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platinum Cloud 2026 [cite: 1]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Urbanist:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">APS PLATINUM </div>
+        <nav class="nav-links">
+            <button onclick="switchView('b2b-view')" class="nav-btn">B2B Portal [cite: 16]</button>
+            <button onclick="switchView('ticket-view')" class="nav-btn">Ticket Digital [cite: 18]</button>
+            <button onclick="switchView('flight-deck-view')" class="nav-btn active">Flight Deck [cite: 20]</button>
+        </nav>
+    </header>
+
+    <main id="app-container">
+        
+        <section id="b2b-view" class="view hidden">
+            <div class="card">
+                <h2>Portal B2B [cite: 16]</h2>
+                <p>Auditoría logística automatizada[cite: 17].</p>
+                <form id="b2b-form" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="venue">Establecimiento</label>
+                        <input type="text" id="venue" name="venue" placeholder="Ej. Brickell Venue" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="capacity">Capacidad Requerida</label>
+                        <input type="number" id="capacity" name="capacity" placeholder="Número de vehículos" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Solicitar Integración</button>
+                </form>
+                <div id="form-feedback" class="feedback-msg hidden"></div>
+            </div>
+        </section>
+
+        <section id="ticket-view" class="view hidden">
+            <div class="card center-text">
+                <h2>Experiencia "Zero-App" [cite: 19]</h2>
+                <div class="qr-placeholder">
+                    <span>[ QR Webhook ] [cite: 19]</span>
+                </div>
+                <ul class="feature-list">
+                    <li>Validación de seguridad por token digital [cite: 24]</li>
+                    <li>Integración nativa con pasarela Stripe [cite: 25]</li>
+                    <li>Actualización de estatus en tiempo real [cite: 26]</li>
+                </ul>
+                <button onclick="requestVehicle()" class="btn-primary" id="req-vehicle-btn">Solicitar Vehículo Ahora</button>
+            </div>
+        </section>
+
+        <section id="flight-deck-view" class="view active">
+            <div class="dashboard-header">
+                <h2>Panel de Control Administrativo [cite: 21]</h2>
+                <div class="status-badge">VPS Platinum: <span class="highlight">0.8s Latencia</span> [cite: 38, 39]</div>
+                <div class="status-badge">Uptime: <span class="highlight">99.9%</span> [cite: 43]</div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="metric-card">
+                    <h3>Aforo Actual [cite: 21]</h3>
+                    <div class="metric-value" id="live-occupancy">142</div>
+                    <p>Vehículos en custodia</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Ingresos Brutos</h3>
+                    <div class="metric-value" id="live-revenue">$0.00</div>
+                    <p>Procesado vía Stripe [cite: 25]</p>
+                </div>
+                <div class="metric-card terminal-card">
+                    <h3>Terminal Log (Docker/Coolify) [cite: 9]</h3>
+                    <div class="terminal" id="terminal-logs">
+                        <p>> Sistema iniciado...</p>
+                        <p>> Monitoreo en tiempo real activo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
